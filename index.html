@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>QuizApp</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+	font-size: 20px;
+	font-family: sans-serif;
+	color: #333;
+}
+.submit{
+	font-family: sans-serif;
+	font-size: 20px;
+	background-color: #279;
+	color: #fff;
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+.submit:hover{
+	background-color: #38a;
+}
+    </style>
+  </head>
+
+  <body>
+    <SCRIPT language="JavaScript"
+    type="text/javascript">
+
+function checkAnswer(quiz,
+                 Answer,
+                 Right,
+                 Wrong)
+{
+var s = "?";
+
+// go through the "current choices"
+// to find the selected choice.
+// radio boxes pointing to choices
+// must be named "cc"
+// change if necessary
+//
+var i = 0;
+for(;i<quiz.elements.length;i++)
+{
+if(("cc" ==
+    quiz.elements[i].name) &&
+   (quiz.elements[i].checked))
+{
+  s = quiz.elements[i].value;
+}
+}
+
+// no choice was selected
+//
+if("?" == s)
+{
+alert("Please make a selection.");
+return false;
+}
+
+// check if we have the correct
+// choice selected
+//
+if(s == Answer)
+{
+alert("'"+s+"' is correct!");
+if(Right)
+{
+document.location.href = Right;
+}
+}
+else
+{
+alert("'"+s+"' is incorrect.");
+if( Wrong )
+{
+document.location.href = Wrong;
+}
+}
+
+// return "false" to indicate not to
+// submit the form.
+// change this to "true" if the form
+// "action" is valid,
+//
+return false;
+}
+
+</SCRIPT>
+1.) Which of the following is true about variable naming conventions in JavaScript?
+
+    <FORM method="POST"
+          onSubmit="return checkAnswer(this,'A');"
+    >
+    
+    <INPUT TYPE="RADIO" VALUE="A" NAME="cc">
+    A. JavaScript variable names must begin with a letter or the underscore character.<BR>
+    
+    <INPUT TYPE="RADIO" VALUE="B" NAME="cc">
+    B. JavaScript variable names are not case sensitive.<BR>
+    
+    <INPUT TYPE="RADIO" VALUE="C" NAME="cc">
+    C.None of the above.<BR><br>
+     
+      2.) 2.	How can you get the total number of arguments passed to a function?<BR>
+
+      <FORM method="POST"
+            onSubmit="return checkAnswer(this,'B');">
+      
+      <INPUT TYPE="RADIO" VALUE="A" NAME="cc">
+      A. Using args.length property.<BR>
+      
+      <INPUT TYPE="RADIO" VALUE="B" NAME="cc">
+      B. Using arguments.length property.<BR>
+      
+      <INPUT TYPE="RADIO" VALUE="C" NAME="cc">
+      C. Both of the above.<BR><BR><BR>
+
+
+
+
+    <INPUT TYPE="submit" VALUE="Submit Answer">
+    
+    </FORM>
+
+  </body>
+</html>
